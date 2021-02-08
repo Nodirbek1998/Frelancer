@@ -35,4 +35,4 @@ build/
 '.*mvn'
 freelancer/mvn
 freelancer/mvnw
-freelancer/mvnw'.idea'
+freelancer/mvnw.cmd'.idea'
