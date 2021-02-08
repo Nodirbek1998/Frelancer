@@ -61,7 +61,7 @@ public class AuthController {
            json.put("personType",byUsername.getPersonType());
            json.put("token",token);
            if (PersonType.costumer == byUsername.getPersonType()){
-               json.put("id", projectRepository.findAllByUsers(usersRepository.findById(byUsername.getId()).get()));
+               json.put("projects", projectRepository.findAllByUsers(usersRepository.findById(byUsername.getId()).get()));
            }else{
                json.put("projects",projectRepository.findAll());
            }
