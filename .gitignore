@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+'.idea'
+'.*mvn'
+freelancer/mvn
+freelancer/mvnw
+freelancer/mvnw'.idea'
