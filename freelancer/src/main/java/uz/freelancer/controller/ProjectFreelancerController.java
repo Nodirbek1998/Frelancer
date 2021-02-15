@@ -30,7 +30,7 @@ public class ProjectFreelancerController {
         projectAndFreelancer.setProjectId(reqTakeProject.getProjectId());
         projectAndFreelancer.setUsersId(reqTakeProject.getProjectId());
         projectFreelancerRepository.save(projectAndFreelancer);
-        return ResponseEntity.ok("Javobingiz Costomer ga jo'natildi");
+        return ResponseEntity.ok("Javobingiz Customer ga jo'natildi");
     }
     @GetMapping("/{id}")
     public HttpEntity<?> getAll(@PathVariable Integer id){

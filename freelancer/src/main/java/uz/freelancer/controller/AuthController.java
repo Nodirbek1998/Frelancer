@@ -60,7 +60,7 @@ public class AuthController {
            json.put("id",byUsername.getId());
            json.put("personType",byUsername.getPersonType());
            json.put("token",token);
-           if (PersonType.costumer == byUsername.getPersonType()){
+           if (PersonType.customer == byUsername.getPersonType()){
                json.put("projects", projectRepository.findAllByUsers(usersRepository.findById(byUsername.getId()).get()));
            }else{
                json.put("projects",projectRepository.findAll());
