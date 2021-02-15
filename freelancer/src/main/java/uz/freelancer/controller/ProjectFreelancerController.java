@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import uz.freelancer.entity.Project;
 import uz.freelancer.entity.ProjectFreelancer;
+import uz.freelancer.entity.Users;
 import uz.freelancer.peyload.ApiResponse;
 import uz.freelancer.peyload.ReqTakeProject;
 import uz.freelancer.repository.ProjectFreelancerRepository;
@@ -15,6 +16,7 @@ import uz.freelancer.repository.UsersRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("api/take")
@@ -38,8 +40,8 @@ public class ProjectFreelancerController {
         List<ProjectFreelancer> allByProjectId = projectFreelancerRepository.findByProjectId(id);
         List<Integer> usersId = new ArrayList<>();
         allByProjectId.forEach(users->usersId.add(users.getUsersId()));
-        List<Project> allById = projectRepository.findAllById(usersId);
-        return ResponseEntity.ok(allByProjectId);
+        List<Users> allById = usersRepository.findAllById(usersId);
+        return ResponseEntity.ok(allById);
 
     }
 }
