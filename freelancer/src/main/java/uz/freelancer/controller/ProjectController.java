@@ -47,7 +47,7 @@ public class ProjectController {
     @DeleteMapping("/{id}")
     public  HttpEntity<?> deleteProject(@PathVariable Integer id){
          projectRepository.deleteById(id);
-         return ResponseEntity.ok("Project o'chirildi");
+         return ResponseEntity.ok(new ApiResponse("Project o'chirildi", true));
     }
     @GetMapping("/{id}")
     public HttpEntity<?> getFreelancers(@PathVariable Integer id){

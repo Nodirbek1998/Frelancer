@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import uz.freelancer.entity.Project;
 import uz.freelancer.entity.ProjectFreelancer;
+import uz.freelancer.peyload.ApiResponse;
 import uz.freelancer.peyload.ReqTakeProject;
 import uz.freelancer.repository.ProjectFreelancerRepository;
 import uz.freelancer.repository.ProjectRepository;
@@ -30,7 +31,7 @@ public class ProjectFreelancerController {
         projectAndFreelancer.setProjectId(reqTakeProject.getProjectId());
         projectAndFreelancer.setUsersId(reqTakeProject.getProjectId());
         projectFreelancerRepository.save(projectAndFreelancer);
-        return ResponseEntity.ok("Javobingiz Customer ga jo'natildi");
+        return ResponseEntity.ok(new ApiResponse("Javobingiz Customer ga jo'natildi", true));
     }
     @GetMapping("/{id}")
     public HttpEntity<?> getAll(@PathVariable Integer id){
