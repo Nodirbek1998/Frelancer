@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import uz.freelancer.entity.Project;
 import uz.freelancer.entity.Users;
 import uz.freelancer.entity.enums.PersonType;
 import uz.freelancer.peyload.ApiResponse;
@@ -22,6 +23,7 @@ import uz.freelancer.security.JwtProvider;
 import uz.freelancer.service.UsersService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -61,7 +63,8 @@ public class AuthController {
            json.put("personType",byUsername.getPersonType());
            json.put("token",token);
            if (PersonType.customer == byUsername.getPersonType()){
-               json.put("projects", projectRepository.findAllById(byUsername.getId()));
+               List<Project> allById = projectRepository.findAllByUsersId(byUsername.getId());
+               json.put("projects",allById);
            }else{
                json.put("projects",projectRepository.findAll());
            }

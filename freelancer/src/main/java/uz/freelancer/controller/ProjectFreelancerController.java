@@ -31,7 +31,7 @@ public class ProjectFreelancerController {
     public HttpEntity<?> takeProject(@RequestBody ReqTakeProject reqTakeProject){
         ProjectFreelancer projectAndFreelancer = new ProjectFreelancer();
         projectAndFreelancer.setProjectId(reqTakeProject.getProjectId());
-        projectAndFreelancer.setUsersId(reqTakeProject.getProjectId());
+        projectAndFreelancer.setUsersId(reqTakeProject.getUsersId());
         projectFreelancerRepository.save(projectAndFreelancer);
         return ResponseEntity.ok(new ApiResponse("Javobingiz Customer ga jo'natildi", true));
     }

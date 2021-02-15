@@ -11,5 +11,5 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
     boolean existsByProjectNameAndIdNot(String projectName, Integer id);
 
     List<Project> findAllByUsers(Users users);
-    List<Project> findAllById(Integer id);
+    List<Project> findAllByUsersId(Integer id);
 }
